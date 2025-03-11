@@ -1,0 +1,29 @@
+Making Virtual Environment
+==========================
+
+python -m venv venv
+
+.venv/Scripts/activate
+
+select interpreter
+
+Initialize SSH
+===============
+
+!pip install colab_ssh --upgrade
+from colab_ssh import launch_ssh
+launch_ssh()
+
+Useful pip
+============
+
+Torch (2.6) = pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+pip install scikit-learn
+
+Note:
+
+To make Req.txt: "pip freeze > requirements.txt"
+To Install: "pip install -r requirements.txt"
+upgrading pip: "python -m pip install --upgrade pip"
+
+use if forgot to add git ignore: git rm -r --cached .vscode venv
