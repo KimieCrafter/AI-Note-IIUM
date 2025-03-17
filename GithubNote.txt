@@ -27,3 +27,11 @@ To Install: "pip install -r requirements.txt"
 upgrading pip: "python -m pip install --upgrade pip"
 
 use if forgot to add git ignore: git rm -r --cached .vscode venv
+
+
+To Clone git
+=============
+
+git clone <repo_url>
+git status
+--depth 1 = Add this when u don't want full history
