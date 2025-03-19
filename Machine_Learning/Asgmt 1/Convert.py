@@ -4,4 +4,4 @@ import pandas as pd
 excel_data = pd.read_excel('Solar_Power_Generation.xlsx')
 
 # Save as CSV
-excel_data.to_csv('converted_data.csv', index=False)
+excel_data.to_csv('Solar_Power_Generation.csv', index=False)
