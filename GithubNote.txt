@@ -34,4 +34,4 @@ To Clone git
 
 git clone <repo_url>
 git status
---depth 1 = Add this when u don't want full history
+--depth 1 = Add this when u don't want full history 
