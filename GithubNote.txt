@@ -4,6 +4,8 @@ Making Virtual Environment
 python -m venv venv
 
 .venv/Scripts/activate
+source venv/Scripts/activate
+
 
 select interpreter
 
