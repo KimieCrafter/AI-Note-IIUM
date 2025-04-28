@@ -1,4 +1,6 @@
 venv/
-Deep_Learning/data/
+Deep_Learning/Week Before/data/
 Deep_Learning/Asgmt 1/data_Google/
 Deep_Learning/Asgmt 1/data_People/
+*.tar.gz
+*.zip
