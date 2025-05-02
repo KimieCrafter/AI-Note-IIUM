@@ -1,11 +1,11 @@
 import ffmpeg
 import os
 
-os.environ["PATH"] += os.pathsep + r"C:\ProgramData\chocolatey\bin"  # or wherever ffmpeg.exe lives
+os.environ["PATH"] += os.pathsep + r"C:\ProgramData\chocolatey\bin"  # ffmpeg path
 
-# Set the path to your directory containing .opus files
-input_dir = 'Deep_Learning/Asgmt 1/Data_People/Raw/Alham'  # Change this to your folder path
-output_dir = 'Deep_Learning/Asgmt 1/Data_People/Alham_O'  # Change this to your output folder path
+# opus to wav conversion
+input_dir = 'Deep_Learning/Asgmt 1/Data_People/Raw/SUBHANALLAH'  # Change this to your folder path
+output_dir = 'Deep_Learning/Asgmt 1/Data_People/SUBHANALLAH_O'  # Change this to your output folder path
 
 # Create the output directory if it doesn't exist
 if not os.path.exists(output_dir):
@@ -28,4 +28,4 @@ for filename in os.listdir(input_dir):
         except ffmpeg.Error as e:
             print(f"Error converting {filename}: {e}")
     
-print("ALL FILES CONVERTED. LET'S TRAIN SOME AI, BABY!! 🚀")
+print("ALL FILES CONVERTED !! 🚀")
