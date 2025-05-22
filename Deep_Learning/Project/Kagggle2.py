@@ -281,20 +281,21 @@ def train_model(model, train_loader, val_loader, epochs, criterion, optimizer):
 
 def main():
     train_df = pd.read_csv('C:/IIUM/AI Note IIUM/Deep_Learning/Project/Data/train.csv')
-    test_df = pd.read_csv('C:/IIUM/AI Note IIUM/Deep_Learning/Project/Data/test.csv')
     base_path = 'C:/IIUM/AI Note IIUM/Deep_Learning/Project/Data/ot'
     
+    train_df, val_df = train_test_split(train_df, test_size=0.2, random_state=42)
+    
     train_dataset = HyperspectralDataset(train_df, base_path, augment=True)
-    test_dataset = HyperspectralDataset(test_df, base_path, augment=False)
+    val_dataset = HyperspectralDataset(val_df, base_path, augment=False)
     
     train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=4)
-    test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=4)
+    val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=4)
     
     model = HyperspectralCNN().to(DEVICE)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE, weight_decay=1e-5)
     
-    model = train_model(model, train_loader, test_loader, EPOCHS, criterion, optimizer)
+    model = train_model(model, train_loader, val_loader, EPOCHS, criterion, optimizer)
     
     model.load_state_dict(torch.load('Spectrum_CNN.pth'))
     
