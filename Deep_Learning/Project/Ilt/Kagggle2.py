@@ -63,10 +63,8 @@ class HyperspectralDataset(Dataset):
             if img.shape[1] != self.patch_size or img.shape[2] != self.patch_size:
                 img = F.interpolate(img.unsqueeze(0), size=(self.patch_size, self.patch_size), mode='bilinear').squeeze(0)
 
-            label = torch.tensor(row['label'], dtype=torch.long)  
-
-            if label > 0:
-                label = label - 1
+            # Convert label to 0-99 range for classification
+            label = torch.tensor(row['label'] - 1, dtype=torch.long)  # Subtract 1 to make it 0-99
 
             return img, label
 
@@ -186,7 +184,11 @@ def evaluate_model(model, loader, criterion, device = DEVICE):
             all_preds.extend(preds.cpu().numpy())
             all_labels.extend(labels.cpu().numpy())
     
-    return total_loss / len(loader.dataset), np.array(all_preds), np.array(all_labels)
+    # Convert predictions back to 1-100 range
+    all_preds = np.array(all_preds) + 1
+    all_labels = np.array(all_labels) + 1
+    
+    return total_loss / len(loader.dataset), all_preds, all_labels
 
 def train_model(model, train_loader, val_loader, epochs, criterion, optimizer):
     best_loss = float('inf')
