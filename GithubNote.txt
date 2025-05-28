@@ -6,7 +6,6 @@ python -m venv venv
 .venv/Scripts/activate
 source venv/Scripts/activate
 
-
 select interpreter
 
 Initialize SSH
