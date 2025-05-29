@@ -1,6 +1,3 @@
-[submodule "Deep_Learning/Project"]
-	path = Deep_Learning/Project
-	url = https://github.com/KimieCrafter/Deep-Learning-Project.git
 [submodule "AI_Note_IIUM/Deep_Learning/Project-HyperSpectral"]
 	path = AI_Note_IIUM/Deep_Learning/Project-HyperSpectral
 	url = https://github.com/KimieCrafter/Deep-Learning-Project.git
